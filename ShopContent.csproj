@@ -108,6 +108,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Item.cs" />
     <Compile Include="ViewModell\RelayCommand.cs" />
     <Compile Include="View\Items\Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
@@ -165,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Context\" />
-    <Folder Include="Modell\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ic_item.png">
