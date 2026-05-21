@@ -108,6 +108,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Context\CategoryContext.cs" />
+    <Compile Include="Context\ItemContext.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="ViewModell\RelayCommand.cs" />
@@ -165,9 +167,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Context\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\ic_item.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

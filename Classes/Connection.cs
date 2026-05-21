@@ -21,10 +21,10 @@ namespace ShopContent.Classes
         {
             return new SqlCommand(sql, connection).ExecuteReader();
         }
-        public static void CloseConnection(MySqlConnection connection)
+        public static void CloseConnection(SqlConnection connection)
         {
             connection.Close();
-            MySqlConnection.ClearPool(connection);
+            SqlConnection.ClearPool(connection);
         }
     }
 }
