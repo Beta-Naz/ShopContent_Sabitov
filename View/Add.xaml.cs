@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ShopContent.Context;
+﻿using System.Windows.Controls;
+using ShopContent.ViewModell;
 
 namespace ShopContent.View
 {
@@ -21,9 +8,14 @@ namespace ShopContent.View
     /// </summary>
     public partial class Add : Page
     {
-        public Add(ItemContext item)
+        public Add(object context)
         {
             InitializeComponent();
+            DataContext = new
+            {
+                item = context,
+                category = new VMCategories()
+            };
         }
     }
 }
