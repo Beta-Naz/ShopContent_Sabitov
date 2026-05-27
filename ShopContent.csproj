@@ -113,6 +113,7 @@
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="ViewModell\RelayCommand.cs" />
+    <Compile Include="ViewModell\VMCategories.cs" />
     <Compile Include="ViewModell\VMItems.cs" />
     <Compile Include="View\Add.xaml.cs">
       <DependentUpon>Add.xaml</DependentUpon>
