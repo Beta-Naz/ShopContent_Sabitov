@@ -110,6 +110,7 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Context\CategoryContext.cs" />
     <Compile Include="Context\ItemContext.cs" />
+    <Compile Include="Enums\Type.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="ViewModell\RelayCommand.cs" />

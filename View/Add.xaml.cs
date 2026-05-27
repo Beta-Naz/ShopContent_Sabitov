@@ -1,4 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+using ShopContent.Context;
+using ShopContent.View.Items;
 using ShopContent.ViewModell;
 
 namespace ShopContent.View
@@ -8,6 +11,7 @@ namespace ShopContent.View
     /// </summary>
     public partial class Add : Page
     {
+        
         public Add(object context)
         {
             InitializeComponent();

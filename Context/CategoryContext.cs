@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.Windows;
 using ShopContent.Classes;
 using ShopContent.Model;
 
@@ -7,6 +8,7 @@ namespace ShopContent.Context
 {
     public class CategoryContext : Category
     {
+        public Visibility Visible = Visibility.Collapsed;
         public static ObservableCollection<CategoryContext> AllCategories()
         {
             ObservableCollection<CategoryContext> allCategories = new ObservableCollection<CategoryContext>();
@@ -24,5 +26,8 @@ namespace ShopContent.Context
             Connection.CloseConnection(connection);
             return allCategories;
         }
+        public double Price;
+        public string Description;
+        public int Category;
     }
 }

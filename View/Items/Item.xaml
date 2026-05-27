@@ -48,7 +48,7 @@
             <Label Content="Наименование" VerticalAlignment="Top" Margin="10,10,10,0"/>
             <TextBox Text="{Binding Name}" Height="26" VerticalAlignment="Top" Margin="10,36,10,0" VerticalContentAlignment="Center" IsEnabled="False"/>
 
-            <Label Content="Стоимость" VerticalAlignment="Top" Margin="10,10,10,0" Grid.Column="1"/>
+            <Label Visibility="{Binding Visible}" Content="Стоимость" VerticalAlignment="Top" Margin="10,10,10,0" Grid.Column="1"/>
             <TextBox Text="{Binding Price}" Height="25" VerticalAlignment="Top" Margin="10,37,10,0" VerticalContentAlignment="Center" IsEnabled="False" Grid.Column="1"/>
 
             <Label Content="Категория" VerticalAlignment="Top" Margin="10,67,10,0" Grid.ColumnSpan="2"/>

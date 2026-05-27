@@ -6,11 +6,10 @@ namespace ShopContent.Classes
     public class Connection
     {
         private readonly static string _connectionData =
-            @"server=127.0.0.1;
-              port=3306;
-              database=shop;
-              uid=root;
-              pwd=";
+            @"server=10.0.201.112;
+              database=base1_ISP_23_1_21;
+              uid=ISP_23_1_21;
+              pwd=D7x7gZZp-3_";
         public static SqlConnection CreateConnection()
         {
             SqlConnection connection = new SqlConnection(_connectionData);

@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Windows;
 using ShopContent.Model;
 using ShopContent.ViewModell;
 
@@ -8,6 +9,7 @@ namespace ShopContent.Context
 {
     public class ItemContext : Item
     {
+        public Visibility Visible = Visibility.Visible;
         public ItemContext(bool save = false)
         {
             if (save) Save(true);
@@ -80,7 +82,8 @@ namespace ShopContent.Context
                 {
                     Category = CategoryContext.AllCategories().Where(x => x.Id == this.Category.Id).First();
                     Save();
-                });            }
+                });            
+            }
         }
         public RelayCommand OnEdit
         {
@@ -103,5 +106,6 @@ namespace ShopContent.Context
                 });
             }
         }
+
     }
 }
