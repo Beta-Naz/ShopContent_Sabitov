@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ShopContent
@@ -18,6 +19,10 @@ namespace ShopContent
         private void OpenIndex(object sendrt, MouseButtonEventArgs e)
         {
             frame.Navigate(Main);
+        }
+        public void OpenPage(Page page)
+        {
+            frame.Navigate(page);
         }
     }
 }
