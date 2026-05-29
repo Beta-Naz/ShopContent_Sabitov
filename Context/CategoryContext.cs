@@ -1,14 +1,22 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows;
 using ShopContent.Classes;
 using ShopContent.Model;
+using ShopContent.ViewModell;
 
 namespace ShopContent.Context
 {
     public class CategoryContext : Category
     {
         public Visibility Visible = Visibility.Collapsed;
+
+        public CategoryContext(bool save = false)
+        {
+            if (save) Save(true);
+        }
+
         public static ObservableCollection<CategoryContext> AllCategories()
         {
             ObservableCollection<CategoryContext> allCategories = new ObservableCollection<CategoryContext>();
@@ -26,8 +34,76 @@ namespace ShopContent.Context
             Connection.CloseConnection(connection);
             return allCategories;
         }
-        public double Price;
-        public string Description;
-        public int Category;
+
+        public void Save(bool save = false)
+        {
+            SqlConnection connection = Connection.CreateConnection();
+            if (save)
+            {
+                string sql = $"INSERT INTO " +
+                    $"[dbo].[Categories]" +
+                    $"(Name) " +
+                    $"OUTPUT Inserted.Id " +
+                    $"VALUES (N'{this.Name}');";
+                SqlDataReader dataReader = Connection.Query(sql, connection);
+                dataReader.Read();
+                Id = dataReader.GetInt32(0);
+            }
+            else
+            {
+                string sql = $"UPDATE " +
+                    $"[dbo].[Categories] " +
+                    $"SET " +
+                    $"Name = N'{this.Name}' " +
+                    $"WHERE " +
+                    $"Id = {this.Id};";
+                Connection.Query(sql, connection);
+            }
+            Connection.CloseConnection(connection);
+            MainWindow.Instance.OpenPage(MainWindow.Instance.Main);
+        }
+
+        public void Delete()
+        {
+            SqlConnection connection = Connection.CreateConnection();
+            string sql = $"DELETE FROM [dbo].[Categories] " +
+                $"WHERE " +
+                $"Id = {this.Id}";
+            Connection.Query(sql, connection);
+        }
+
+        public RelayCommand OnSave
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    Save();
+                });
+            }
+        }
+
+        public RelayCommand OnEdit
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    MainWindow.Instance.OpenPage(new View.AddCategory(this));
+                });
+            }
+        }
+
+        public RelayCommand OnDelete
+        {
+            get
+            {
+                return new RelayCommand(obj =>
+                {
+                    Delete();
+                    (MainWindow.Instance.Main.DataContext as ViewModell.VMCategories).Categories.Remove(this);
+                });
+            }
+        }
     }
 }

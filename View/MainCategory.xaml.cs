@@ -3,12 +3,12 @@ using ShopContent.ViewModell;
 
 namespace ShopContent.View
 {
-    public partial class Main : Page
+    public partial class MainCategory : Page
     {
-        public Main()
+        public MainCategory()
         {
             InitializeComponent();
-            DataContext = new VMItems();
+            DataContext = new VMCategories();
         }
     }
 }

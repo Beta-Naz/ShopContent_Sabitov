@@ -1,12 +1,11 @@
 ﻿using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
 
 namespace ShopContent.Classes
 {
     public class Connection
     {
         private readonly static string _connectionData =
-            @"server=10.0.201.112;
+              @"server=10.0.201.112;
               database=base1_ISP_23_1_21;
               uid=ISP_23_1_21;
               pwd=D7x7gZZp-3_";
